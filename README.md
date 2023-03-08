@@ -1,15 +1,24 @@
 ##Objectif
 
 
-BLOG LES FELINS
+BLOG Formation Implusion Adrec
 
-( projet en autonomie )
+( projet en stage à l'ADREC )
 
 
-Création d’un blog gérant des articles sur tous les felins  avec systeme de categorie
+Creation d’un blog d'articles pour la formation impulsion Adrec
 
-- page de listing d'article (pagination)
-- page listing article pour une catégorie (pagination)
-- page présentation d'un article
-- Administration des catégories
+- page presentation article
+- page de listing article (pagination)
+- page listing article pour une categories (pagination)
+- page agenda evenements
+- page présentation formation
+- page cv etudiants
+- Administration des categories
 - Administration des articles
+- Administration agenda 
+- Administration cv 
+
+
+- Code couleurs utilisées: EC6A20, E5E4E3, 2582F0, 000000, D9D9D9, FFFFFF
+- Font utilisé: Calibri bold, Calibri regular
