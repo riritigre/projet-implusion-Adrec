@@ -35,9 +35,9 @@ for ($i = 0; $i < 5; $i++) {
 foreach($posts as $post) {
     $randomCategories = $faker->randomElements($categories, rand(0, count($categories)));
     foreach ($randomCategories as $category) {
-        $pdo->exec(/"INSERT INTO post_category SET post_id=$post, category_id=$category");
+        $pdo->exec("INSERT INTO post_category SET post_id=$post, category_id=$category");
     }
 }
 
 $password = password_hash('admin' , PASSWORD_BCRYPT);
-$pdo->exec( "INSERT INTO user SET name='admin', password=''");
+$pdo->exec( "INSERT INTO user SET username='admin', password=''");

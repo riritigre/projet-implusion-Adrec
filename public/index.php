@@ -18,7 +18,8 @@ $whoops->pushHandler(new PrettyPageHandler);
 $router = new App\Router(dirname(__DIR__) . '/views');
 try {
     $router
-        ->get('/blog', 'post/index', 'blog')
+        ->get('/', 'post/index', 'home')
+        ->get('/blog/[*:slug]-[i:id]', 'post/show', "post")
         ->get('/blog/category', 'category/show', 'category')
         ->run();
 } catch (Exception $e) {

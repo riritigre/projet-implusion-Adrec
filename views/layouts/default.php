@@ -1,4 +1,4 @@
-<?php include '../../src/Router.php' ?>
+<?php //include '../../src/Router.php' ?>
 <!DOCTYPE html>
 
 <html lang="fr" class="h-100">
