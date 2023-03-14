@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="525deb99-41a7-4c24-8c62-52bbb58f495f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/Post.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/Text.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/post/card.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Connection.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/URL.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands/fill.php" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fill.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/default.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/post/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/post/index.php" afterDir="false" />
     </list>
@@ -78,17 +75,17 @@
       <recent name="C:\wamp64\www\ImplusionAdrec" />
     </key>
   </component>
-  <component name="RunManager" selected="PHP Script.Post.php">
+  <component name="RunManager" selected="PHP Script.URL.php">
     <configuration name="Post.php" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ImplusionAdrec/src/Model/Post.php" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
     <configuration name="Post.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/Model/Post.php">
       <method v="2" />
     </configuration>
-    <configuration name="fill.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/commands/fill.php">
+    <configuration name="URL.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/src/URL.php">
       <method v="2" />
     </configuration>
-    <configuration name="header.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/views/layouts/header.php">
+    <configuration name="fill.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/commands/fill.php">
       <method v="2" />
     </configuration>
     <configuration name="index.php" type="PhpLocalRunConfigurationType" factoryName="PHP Console" temporary="true" path="$PROJECT_DIR$/views/post/index.php">
@@ -96,11 +93,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHP Script.URL.php" />
         <item itemvalue="PHP Script.Post.php" />
         <item itemvalue="JavaScript Debug.Post.php" />
         <item itemvalue="PHP Script.index.php" />
         <item itemvalue="PHP Script.fill.php" />
-        <item itemvalue="PHP Script.header.php" />
       </list>
     </recent_temporary>
   </component>
@@ -128,7 +125,10 @@
       <workItem from="1678718513353" duration="4962000" />
       <workItem from="1678724837626" duration="4649000" />
       <workItem from="1678729852651" duration="2380000" />
-      <workItem from="1678733544227" duration="1845000" />
+      <workItem from="1678733544227" duration="2120000" />
+      <workItem from="1678736863387" duration="49000" />
+      <workItem from="1678788804955" duration="116000" />
+      <workItem from="1678788936811" duration="16128000" />
     </task>
     <servers />
   </component>

@@ -11,7 +11,18 @@ $whoops = new Run;
 $whoops->pushHandler(new PrettyPageHandler);
 /*$whoops->register();*/
 
-
+if (isset($_GET['page']) && $_GET['page'] === '1') {
+    $url = explode('?', $_SERVER['REQUEST_URI'])[0];
+    $get = $_GET;
+    unset($_GET['page']);
+    $query = http_build_query($_GET);
+    if(!empty($query)) {
+        $url = $url . '?' . $query;
+    }
+    http_response_code(301);
+    header('Location: ' . $url);
+    exit();
+}
 
 
 
