@@ -5,15 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="525deb99-41a7-4c24-8c62-52bbb58f495f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/Post.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/helpers/Text.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/views/post/card.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/commands/fill.php" beforeDir="false" afterPath="$PROJECT_DIR$/commands/fill.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Router.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Router.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/default.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/default.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/post/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/post/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,7 +49,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/ImplusionAdrec/public&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/wamp64/www/ImplusionAdrec&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -128,7 +120,11 @@
       <workItem from="1678718513353" duration="4962000" />
       <workItem from="1678724837626" duration="4649000" />
       <workItem from="1678729852651" duration="2380000" />
-      <workItem from="1678733544227" duration="1845000" />
+      <workItem from="1678733544227" duration="2120000" />
+      <workItem from="1678736863387" duration="49000" />
+      <workItem from="1678811923683" duration="53000" />
+      <workItem from="1678873676028" duration="238000" />
+      <workItem from="1678874032730" duration="288000" />
     </task>
     <servers />
   </component>
