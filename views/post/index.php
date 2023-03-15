@@ -3,13 +3,15 @@
 use App\helpers\Text;
 use App\Model\Post;
 use App\Router;
+use App\Connection;
+use App\URL;
 
 
-$title = 'Mon Blog formation';
-$pdo = new PDO('mysql:dbname=implusionadrecblog; host=127.0.0.1:3306' , 'root', '' , [
-    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-]);
-$currentPage = $_GET['page'] ?? 1 ?: 1;
+$title = 'Formation Implusion ADREC';
+$pdo = Connection::getPDO();
+
+$currentPage = URL::getInt('page' , 1);
+
 $count = $pdo->query('SELECT COUNT(id) FROM post')->fetch(PDO::FETCH_NUM)[0];
 $perPage = 12;
 $pages = ceil($count/$perPage);
@@ -19,7 +21,7 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class );
 
 ?>
 
-<h1>Mon Blog </h1>
+<h1></h1>
 
 <br>
 <br>
@@ -32,14 +34,24 @@ $posts = $query->fetchAll(PDO::FETCH_CLASS, Post::class );
     </div>
     <?php endforeach ?>
 </div>
-<div class="d-flex justify-content-between my-4">
+<!--justify-content-between => il prend tout les élément et il les places aux extremité-->
+<!--justify-content-end => il prend tous les élément et les met à droite-->
+<!--donc à toi de faire tes conditions sur tes classes en fonction des boutons qui s'affiche, ok ? -->
+
+
+<div class="d-flex justify-content-between my-4 " >
     <?php if($currentPage > 1): ?>
-    <a href="<?= $router->url('home') ?>?page=<?= $currentPage - 1 ?>" class="btn btn-primary">&laquo; Page précédente</a>
+      <?php
+     $link = $router->url('home');
+     if($currentPage > 2) $link .='?page=' . $currentPage - 1;
+     ?>
+      <a href="<?= $link ?>" class="btn btn-primary">&laquo; Page précédente</a>
     <?php endif ?>
     <?php if($currentPage < $pages): ?>
-    <a href="<?= $router->url('home') ?>?page=<?= $currentPage + 1 ?>" class="btn btn-primary ms-auto">Page suivante &raquo;</a>
+
+    <a href="<?= $router->url('home') ?>?page=<?= $currentPage + 1 ?>" class="btn btn-primary ms-auto">Page suivante &raquo;</a
+
     <?php endif ?>
+
 </div>
-
-
 
