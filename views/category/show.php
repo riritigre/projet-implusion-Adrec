@@ -5,19 +5,15 @@ use App\Model\Post;
 use App\PaginatedQuery;
 use App\Model\Category;
 use App\Router;
-
+use App\Table\CategoryTable;
+use App\Table\PostTable;
 
 
 $id = (int)$params['id'];
 $slug = $params['slug'];
 
 $pdo = Connection::getPDO();
-$query = $pdo ->prepare('SELECT * FROM category WHERE id= :id');
-$query->execute(['id' => $id]);
-$query->setFetchMode(PDO::FETCH_CLASS, Category::class);
-/**@cvar Category|false */
-$category= $query->fetch();
-
+$category =  (new CategoryTable($pdo))->find($id);
 
 ?>
 <?php
@@ -29,19 +25,8 @@ if($category->getSlug() !== $slug){
 }
 
 $title = "Catégorie {$category->getName()}";
+[$posts, $paginatedQuery] = (new PostTable($pdo))->findPaginatedForCategory($category->getID());
 
-$paginatedQuery = new PaginatedQuery(
-    "SELECT P.*
-    FROM post p
-    JOIN post_category pc ON p.id = pc.post_id
-    WHERE pc.category_id =  {$category->getID()}
-    ORDER BY created_at DESC",
-    "SELECT COUNT(id) FROM post",
-);
-
-
-/** @var Post[] $paginatedQuery */
-$posts = $paginatedQuery->getItems(Post::class);
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 ?>
 
