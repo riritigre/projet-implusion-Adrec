@@ -10,6 +10,8 @@
         "symfony/var-dumper": "^6.2",
         "filp/whoops": "2.15",
         "ext-pdo": "*",
-        "fakerphp/faker": "^1.21"
+        "fakerphp/faker": "^1.21",
+        "vlucas/valitron": "1.4.5",
+        "ext-http": "*"
     }
 }

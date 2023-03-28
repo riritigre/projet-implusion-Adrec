@@ -5,11 +5,12 @@ namespace App;
 
 use AltoRouter;
 
+
 class Router {
     /**
      * @var string
      */
-    private $viewPath;
+    private string $viewPath;
 
     /**
      * @var AltoRouter
@@ -22,9 +23,7 @@ class Router {
     }
 
 
-    /**
-     * @throws \Exception
-     */
+
     public function get(string $url, string $view, ?string $name = null):self
     {
 
@@ -33,12 +32,29 @@ class Router {
         return $this;
     }
 
-    public function url (string $name, array $params = []):string{
 
-        return $this->router->generate($name, $params);
+    public function post(string $url, string $view, ?string $name = null):self
+    {
+
+        $this->router->map('POST', $url, $view, $name );
+
+        return $this;
     }
 
-    public function run():self
+    public function match(string $url, string $view, ?string $name = null):self
+    {
+        $this->router->map('POST|GET', $url, $view, $name );
+        //dd($this);
+        return $this;
+    }
+
+    public function url (string $name, array $params = []):string|array{
+
+        return $this->router->generate($name, $params);
+
+    }
+
+    public function run(): self
     {
         $match = $this->router->match();
         $view = $match['target'];
@@ -48,6 +64,7 @@ class Router {
         require $this->viewPath . DIRECTORY_SEPARATOR . $view . '.php';
         $content = ob_get_clean();
         require $this->viewPath . DIRECTORY_SEPARATOR . 'layouts/default.php';
+
 
         return $this;
     }

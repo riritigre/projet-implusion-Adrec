@@ -16,12 +16,34 @@ final class PostTable extends Table {
     protected $table = "post";
     protected $class = Post::class;
 
+    public function update (Post $post):void
+    {
+        $query = $this->pdo->prepare("UPDATE $this->table SET name = :name, slug =:slug, created_at = :created, content = :content,  WHERE id = :id");
+        $ok = $query->execute([
+
+            'id' => $post->getID(),
+            'name' => $post->getName(),
+            'slug' => $post->getSlug(),
+            'content' => $post->getContent(),
+            'created' => $post->getCreatedAt()->format('Y-m-d H:i:s')
+        ]);
+        if ($ok === false) {
+            throw new\Exception("impossible de supprimer l'enregistrement $id dans la table ($this->table)");
+        }
+
+    }
+    public function delete (int $id):void
+    {
+        $query = $this->pdo->prepare("DELETE FROM {$this->table} WHERE id = ?");
+
+
+    }
     public function findPaginated ()
     {
 
         $paginatedQuery = new PaginatedQuery(
-            "SELECT * FROM post ORDER BY created_at DESC",
-            "SELECT COUNT(id) FROM post",
+            "SELECT * FROM {$this->table} ORDER BY created_at DESC",
+            "SELECT COUNT(id) FROM {$this->table}",
             $this->pdo
         );
         $posts = $paginatedQuery->getItems(Post::class);
@@ -34,7 +56,7 @@ final class PostTable extends Table {
 
         $paginatedQuery = new PaginatedQuery(
             "SELECT P.*
-                       FROM post p
+                       FROM {$this->table} p
                        JOIN post_category pc ON p.id = pc.post_id
                        WHERE pc.category_id =  {$categoryID}
                        ORDER BY created_at DESC",
