@@ -12,7 +12,7 @@ class PaginatedQuery
     private int $perPage;
     private  $count;
     private $items;
-    private $PDO;
+
 
     public function __construct(
         string $query,

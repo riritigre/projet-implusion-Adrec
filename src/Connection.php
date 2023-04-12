@@ -1,7 +1,7 @@
 <?php
 namespace App;
 
-use \PDO;
+use PDO;
 
 class  Connection
 {
@@ -9,7 +9,7 @@ class  Connection
     public static function getPDO(): PDO
     {
 
-        return $pdo = new PDO('mysql:dbname=implusionadrecblog; host=127.0.0.1:3306', 'root', '', [
+        return new PDO('mysql:dbname=implusionadrecblog; host=127.0.0.1:3306', 'root', '', [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
         ]);
     }

@@ -1,58 +1,60 @@
 <?php
-
 use App\Connection;
+use App\Table\CategoryTable;
 use App\Table\PostTable;
-use App\Validator ;
-use App\HTML\Forms;
+use App\HTML\Form;
+use App\Validators\PostValidator;
+use App\ObjectHelper;
+use App\Auth;
+
+Auth::check();
 
 $pdo = Connection::getPDO();
 $postTable = new PostTable($pdo);
+$categoryTable = new CategoryTable($pdo);
+$categories = $categoryTable->list();
 $post = $postTable->find($params['id']);
+$categoryTable->hydratePosts([$post]);
 $success = false;
 
 $errors = [];
 
-if(!empty($_POST)) {
-    Validator::lang('fr');
-    $v = new Validator($_POST);
-    $v->rule('required', ['name', 'slug']);
-    $v->rule('lengthBetween',['name', 'slug'],  3, 200);
-    $post
-        ->setName($_POST['name'])
-        ->setContent($_POST['content'])
-        ->setSlug($_POST['slug'])
-        ->setCreatedAt($_POST['name']);
+if (!empty($_POST)) {
+    $v = new PostValidator($_POST, $postTable, $post->getID(), $categories);
+    ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at']);
     if ($v->validate()) {
-        $postTable->update($post);
+        $pdo->beginTransaction();
+        $postTable->updatePost($post);
+        $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
+        $pdo->commit();
+        $categoryTable->hydratePosts([$post]);
         $success = true;
     } else {
         $errors = $v->errors();
     }
 }
-$form = new Forms($post, $errors);
-
+$form = new Form($post, $errors);
 ?>
 
-<?php if($success): ?>
-<div class="alert alert-success">
-    L'article a bien été modifié
-</div>
+<?php if ($success): ?>
+    <div class="alert alert-success">
+        L'article a bien été modifié
+    </div>
 <?php endif ?>
 
-<?php if (empty($errors)): ?>
-<div class="alert alert-danger">
-    l'article n'a pas pu être modifié, merci de corriger vos erreurs
-</div>
+<?php if (isset($_GET['created'])): ?>
+    <div class="alert alert-success">
+        L'article a bien été créé
+    </div>
 <?php endif ?>
 
+<?php if (!empty($errors)): ?>
+    <div class="alert alert-danger">
+        L'article n'a pas pu être modifié, merci de corriger vos erreurs
+    </div>
+<?php endif ?>
 
-<h1> Editer l'article <?= e($post->getName()) ?> </h1>
+<h1>Editer l'article <?= e($post->getName()) ?></h1>
 
-<form action="" method="POST">
-    <?= $form->input('name', 'Titre'); ?>
-    <?= $form->input('slug', 'URL'); ?>
-    <?= $form->textarea('content', 'Contenu'); ?>
-
-    <buttom class="btn btn-primary">Modifier</buttom>
-</form>
+<?php require('_form.php') ?>
 

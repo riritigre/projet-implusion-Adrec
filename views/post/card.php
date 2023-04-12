@@ -17,6 +17,12 @@ HTML;
                     <?= implode(', ', $categories) ?>
                     <?php endif ?>
                 <p class="card-text"><?=$post->getExcerpt()?></p>
+                <style>
+                    .btn-primary{
+                        background-color: #EC6A20;
+                        border-color: #EC6A20;
+                    }
+                </style>
                 <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" class="btn btn-primary">Voir plus</a>
             </div>
         </div>

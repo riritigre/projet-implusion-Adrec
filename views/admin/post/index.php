@@ -28,7 +28,9 @@ $link = $router->url('admin_posts');
     <thead>
         <th>#</th>
         <th>Titre</th>
-        <th>Actions</th>
+        <th>
+            <a href="<?= $router->url('admin_post_new') ?>" class="btn btn-primary">Nouveau</a>
+        </th>
     </thead>
     <tbody>
         <?php foreach ($posts as $post): ?>
@@ -36,7 +38,7 @@ $link = $router->url('admin_posts');
           <td>#<?= $post->getID() ?></td>
           <td>
               <a href="<?= $router->url('admin_post', ['id' => $post->getID()]) ?> ">
-              <?= e($post->getName()) ?>
+                  <?= e($post->getName()) ?>
               </a>
           </td>
           <td>

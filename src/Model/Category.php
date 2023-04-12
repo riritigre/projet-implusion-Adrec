@@ -5,23 +5,39 @@ class Category {
 
     private $id;
 
-    private $slug;
+    private  $slug;
 
     private $name;
     private $post_id;
-    private $post;
+
+    private  $post;
 
 
 
     public function getID ():  ?int {
         return  $this->id;
     }
+
+    public function setID(int $id): void
+    {
+        $this->id = $id;
+    }
     public function getSlug ():  ?string {
         return  $this->slug;
     }
 
+    public function setSlug(string $slug): void
+    {
+        $this->slug = $slug;
+    }
+
     public function getName ():  ?string {
         return  $this->name;
+    }
+
+    public function setName(string $name): void
+    {
+        $this->name = $name;
     }
 
     public function getPostID () : ?int
@@ -30,7 +46,7 @@ class Category {
 
     }
 
-    public function setPost(Post $post)
+    public function setPost(Post $post): void
     {
         $this->post = $post;
     }

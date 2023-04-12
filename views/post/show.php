@@ -1,11 +1,9 @@
 <?php
 
 use App\Connection;
-use App\Model\Post;
-use App\Model\Category;
-use App\Router;
-use App\Table\CategoryTable;
 use App\Table\PostTable;
+use App\Table\CategoryTable;
+use App\Table\Table;
 
 
 $id = (int)$params['id'];

@@ -1,10 +1,29 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
-    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
       <option name="myValues">
         <value>
           <list size="10">
+            <item index="0" class="java.lang.String" itemvalue="text-align:center" />
+            <item index="1" class="java.lang.String" itemvalue="center" />
+            <item index="2" class="java.lang.String" itemvalue="fontsize" />
+            <item index="3" class="java.lang.String" itemvalue="btn-floating" />
+            <item index="4" class="java.lang.String" itemvalue="btn-primary" />
+            <item index="5" class="java.lang.String" itemvalue="btn" />
+            <item index="6" class="java.lang.String" itemvalue="m-1" />
+            <item index="7" class="java.lang.String" itemvalue="text" />
+            <item index="8" class="java.lang.String" itemvalue="200" />
+            <item index="9" class="java.lang.String" itemvalue="px" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="HtmlUnknownTag" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="13">
             <item index="0" class="java.lang.String" itemvalue="nobr" />
             <item index="1" class="java.lang.String" itemvalue="noembed" />
             <item index="2" class="java.lang.String" itemvalue="comment" />
@@ -15,6 +34,9 @@
             <item index="7" class="java.lang.String" itemvalue="a" />
             <item index="8" class="java.lang.String" itemvalue="imput" />
             <item index="9" class="java.lang.String" itemvalue="buttom" />
+            <item index="10" class="java.lang.String" itemvalue="h6" />
+            <item index="11" class="java.lang.String" itemvalue="style" />
+            <item index="12" class="java.lang.String" itemvalue="d" />
           </list>
         </value>
       </option>

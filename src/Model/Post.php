@@ -3,8 +3,8 @@
 namespace App\Model;
 
 use  App\helpers\Text;
-use \DateTime;
-use http\QueryString;
+use DateTime;
+
 
 
 class Post {
@@ -17,9 +17,9 @@ class Post {
 
     private string $content;
 
-    private  string $created_at;
+    private  string $created_at="";
 
-    private $categories = [];
+    private array $categories = [];
 
     public function getName (): ?string
     {
@@ -54,7 +54,7 @@ class Post {
         if ($this->content === null) {
             return null;
         }
-        return nl2br(htmlentities(Text::excerpt($this->content, 60)));
+        return nl2br(htmlentities(Text::excerpt($this->content)));
     }
     public function getCreatedAt ():DateTime
     {
@@ -85,6 +85,14 @@ class Post {
         return $this->id;
     }
 
+    public function setID (int $id): self
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+
     /**
      * @return Category[]
      */
@@ -92,12 +100,34 @@ class Post {
     {
         return $this->categories;
     }
+
+    public function getCategoriesIds (): array {
+        $ids = [];
+        foreach($this->categories as $category) {
+            $ids[] = $category->getID();
+        }
+        return $ids;
+    }
+    /**
+     * @return Category[]
+     */
+
+    public function setCategories (array $categories): self
+    {
+        $this->categories = $categories;
+
+        return $this;
+    }
     public function addCategory (Category $category): void
     {
 
         $this->categories[] = $category;
         $category->setPost($this);
     }
+
+
+
+
 
 }
 

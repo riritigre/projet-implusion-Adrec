@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Helpers;
+namespace App\Helpers {
 
-Class Text {
+    Class Text {
 
-    public static function excerpt(string $content, int $limit = 60){
+        public static function excerpt(string $content, int $limit = 60):string
+        {
 
-        if(mb_strlen($content) <=  $limit){
+            if(mb_strlen($content) <=  $limit){
 
-            return $content;
+                return $content;
+            }
+            $lastSpace = mb_strpos($content, ' ', $limit);
+            return mb_substr($content, 0, $lastSpace) .  '...';
         }
-        $lastSpace = mb_strpos($content, ' ', $limit);
-        return mb_substr($content, 0, $lastSpace) .  '...';
     }
 }
