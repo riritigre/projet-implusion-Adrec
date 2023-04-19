@@ -1,6 +1,7 @@
 <?php
 namespace App;
 
+use AltoRouter;
 use App\Security\ForbiddenException;
 
 class Router {
@@ -8,12 +9,12 @@ class Router {
     /**
      * @var string
      */
-    private $viewPath;
+    private string $viewPath;
 
     /**
      * @var AltoRouter
      */
-    private $router;
+    private AltoRouter $router;
 
     public function __construct(string $viewPath)
     {
@@ -52,7 +53,7 @@ class Router {
         $view = $match['target'] ?: 'e404';
         $params = $match['params'];
         $router = $this;
-        $isAdmin = strpos($view, 'admin/') !== false;
+        $isAdmin = str_contains($view, 'admin/') !==false;
         $layout = $isAdmin ? 'admin/layouts/default' : 'layouts/default';
         try {
             ob_start();

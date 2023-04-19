@@ -6,8 +6,8 @@
 use App\Connection;
 use App\Table\CategoryTable;
 use App\HTML\Form;
-use App\ObjectHelper;
 use App\Validators\CategoryValidator;
+use App\ObjectHelper;
 use App\Auth;
 
 Auth::check();
@@ -53,6 +53,6 @@ $form = new Form($item, $errors);
     </div>
 <?php endif ?>
 
-<h1>Editer la catégorie <?= e($item->getName()) ?></h1>
+<h1>Editer la catégorie <?= $item->getName() ?></h1>
 
 <?php require('_form.php') ?>

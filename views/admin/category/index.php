@@ -1,9 +1,10 @@
 
 <?php
 
-use App\Auth;
+
 use App\Connection;
 use App\Table\CategoryTable;
+use App\Auth;
 
 Auth::check();
 
@@ -34,7 +35,7 @@ $items = (new CategoryTable($pdo))->all();
             <td>#<?= $item->getID() ?></td>
             <td>
                 <a href="<?= $router->url('admin_category', ['id' => $item->getID()]) ?>">
-                    <?= e($item->getName()) ?>
+                    <?= $item->getName() ?>
                 </a>
             </td>
             <td><?= $item->getSlug() ?></td>

@@ -19,6 +19,13 @@ Creation d’un blog d'articles pour la formation impulsion Adrec
 - Administration agenda 
 - Administration CVthèque
 
+## Upload d'images
+
+x Ajouter un champs sur le formulaire
+x Valider le fichier envoyé par l'utilisateur
+x Sauvegarder le fichier sur le serveur
+x Gérer la suppression du fichier (quand l'article est supprimé)
+
 
 - Code couleurs utilisées: EC6A20, E5E4E3, 2582F0, 000000, D9D9D9, FFFFFF
-- Font utilisé: Calibri bold, Calibri regular
+- Font utilisé: Calibri, Calibri bold, Calibri regular

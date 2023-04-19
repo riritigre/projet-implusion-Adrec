@@ -1,33 +1,28 @@
-<?php
 
-use Whoops\Handler\PrettyPageHandler;
-use Whoops\Run;
+<?php
 
 require '../vendor/autoload.php';
 
-define('DEBUG TIME' , microtime(true));
+define('DEBUG_TIME', microtime(true));
 
-$whoops = new Run;
-$whoops->pushHandler(new PrettyPageHandler);
-/*$whoops->register();*/
+$whoops = new \Whoops\Run;
+$whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
+$whoops->register();
 
-function e (string $string):string{
-    return htmlentities($string);
-}
+const UPLOAD_PATH = __DIR__ . DIRECTORY_SEPARATOR . 'uploads';
 
-if (isset($_GET['page']) && $_GET['page'] === '1') {
-    $url = explode('?', $_SERVER['REQUEST_URI'])[0];
+if(isset($_GET['page']) && $_GET['page'] === '1') {
+    $uri = explode('?', $_SERVER['REQUEST_URI'])[0];
     $get = $_GET;
-    unset($_GET['page']);
-    $query = http_build_query($_GET);
-    if(!empty($query)) {
-        $url = $url . '?' . $query;
+    unset($get['page']);
+    $query = http_build_query($get);
+    if (!empty($query)) {
+        $uri = $uri . '?' . $query;
     }
     http_response_code(301);
-    header('Location: ' . $url);
+    header('Location: ' . $uri);
     exit();
 }
-
 
 
 $router = new App\Router(dirname(__DIR__) . '/views');

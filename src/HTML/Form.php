@@ -20,7 +20,18 @@ class Form {
         return <<<HTML
           <div class="form-group">
             <label for="field{$key}">{$label}</label>
-            <input type="$type" id="field{$key}" class="{$this->getInputClass($key)}" name="{$key}" value="{$value}" required>
+            <input type="{$type}" id="field{$key}" class="{$this->getInputClass($key)}" name="{$key}" value="{$value}" required>
+            {$this->getErrorFeedback($key)}
+        </div>
+HTML;
+    }
+
+    public function file (string $key, string $label): string
+    {
+        return <<<HTML
+          <div class="form-group">
+            <label for="field{$key}">{$label}</label>
+            <input type="file" id="field{$key}" class="{$this->getInputClass($key)}" name="{$key}">
             {$this->getErrorFeedback($key)}
         </div>
 HTML;

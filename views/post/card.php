@@ -9,6 +9,9 @@ HTML;
 ?>
 
         <div class="card mb-3">
+            <?php if ($post->getImage()): ?>
+                <img src="<?= $post->getImageURL('small') ?>" class="card-img-top" alt="card-img">
+            <?php endif ?>
             <div class="card-body">
                 <p class="text-muted"><?= $post->getCreatedAt()->format('d F Y') ?></p>
                 <h5 class="card-title"><?=htmlentities($post->getName()) ?></h5>
@@ -16,6 +19,11 @@ HTML;
                     <?php if (!empty($post->getCategories())): ?>
                     <?= implode(', ', $categories) ?>
                     <?php endif ?>
+                    <style>
+                        .card-text{
+                            font-weight: normal;php
+                        }
+                    </style>
                 <p class="card-text"><?=$post->getExcerpt()?></p>
                 <style>
                     .btn-primary{

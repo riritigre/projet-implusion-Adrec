@@ -1,11 +1,13 @@
 <?php
+
+use App\Attachment\PostAttachment;
 use App\Connection;
-use App\Table\CategoryTable;
 use App\Table\PostTable;
 use App\HTML\Form;
 use App\Validators\PostValidator;
 use App\ObjectHelper;
 use App\Auth;
+use App\Table\CategoryTable;
 
 Auth::check();
 
@@ -20,10 +22,12 @@ $success = false;
 $errors = [];
 
 if (!empty($_POST)) {
-    $v = new PostValidator($_POST, $postTable, $post->getID(), $categories);
-    ObjectHelper::hydrate($post, $_POST, ['name', 'content', 'slug', 'created_at']);
+    $data = array_merge($_POST, $_FILES);
+    $v = new PostValidator($data, $postTable, $post->getID(), $categories);
+    ObjectHelper::hydrate($post, $data, ['name', 'content', 'slug', 'created_at', 'image']);
     if ($v->validate()) {
         $pdo->beginTransaction();
+        PostAttachment::upload($post);
         $postTable->updatePost($post);
         $postTable->attachCategories($post->getID(), $_POST['categories_ids']);
         $pdo->commit();
@@ -54,7 +58,7 @@ $form = new Form($post, $errors);
     </div>
 <?php endif ?>
 
-<h1>Editer l'article <?= e($post->getName()) ?></h1>
+<h1>Editer l'article <?= $post->getName() ?></h1>
 
 <?php require('_form.php') ?>
 

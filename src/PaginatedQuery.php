@@ -13,14 +13,11 @@ class PaginatedQuery
     private  $count;
     private $items;
 
-
     public function __construct(
         string $query,
         string $queryCount,
-        ?\PDO  $pdo = null,
-        int    $perPage = 12
-
-
+        ?\PDO $pdo = null,
+        int $perPage = 12
     )
     {
         $this->query = $query;
@@ -34,43 +31,47 @@ class PaginatedQuery
         if ($this->items === null) {
             $currentPage = $this->getCurrentPage();
             $pages = $this->getPages();
+            if ($currentPage > $pages) {
+                throw new \Exception('Cette page n\'existe pas');
+            }
             $offset = $this->perPage * ($currentPage - 1);
             $this->items = $this->pdo->query(
                 $this->query .
                 " LIMIT {$this->perPage} OFFSET $offset")
                 ->fetchAll(PDO::FETCH_CLASS, $classMapping);
         }
-        return  $this->items;
+        return $this->items;
     }
-
 
     public function previousLink(string $link): ?string
     {
         $currentPage = $this->getCurrentPage();
-        if($currentPage <= 1) return null;
-        if($currentPage > 2) $link .= "?page=" . ($currentPage -1);
+        if ($currentPage <= 1) return null;
+        if ($currentPage > 2) $link .= "?page=" . ($currentPage - 1);
         return <<<HTML
-        <a href="{$link}" class="btn btn-primary ">&laquo; Page précédente</a>
-        HTML;
+            <a href="{$link}" class="btn btn-primary">&laquo; Page précédente</a>
+HTML;
     }
+
     public function nextLink(string $link): ?string
     {
         $currentPage = $this->getCurrentPage();
         $pages = $this->getPages();
-        if($currentPage >= $pages) return null;
+        if ($currentPage >= $pages) return null;
         $link .= "?page=" . ($currentPage + 1);
         return <<<HTML
-        <a href="{$link}" class="btn btn-primary ms-auto">Page suivante &raquo;</a>
-        HTML;
+            <a href="{$link}" class="btn btn-primary ml-auto">Page suivante &raquo;</a>
+HTML;
     }
 
-    public function getCurrentPage(): ?int
+    private function getCurrentPage(): int
     {
-        return URL::getInt('page', 1);
+        return URL::getPositiveInt('page', 1);
     }
-    public function getPages (): int
+
+    private function getPages (): int
     {
-        if($this->count === null) {
+        if ($this->count === null) {
             $this->count = (int)$this->pdo
                 ->query($this->queryCount)
                 ->fetch(PDO::FETCH_NUM)[0];
@@ -78,5 +79,7 @@ class PaginatedQuery
 
         return ceil($this->count / $this->perPage);
     }
+
+
 
 }

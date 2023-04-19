@@ -1,53 +1,60 @@
 <?php
 namespace App\Model;
 
-class Category {
+class Category
+{
 
     private $id;
 
-    private  $slug;
+    private $slug;
 
     private $name;
     private $post_id;
 
-    private  $post;
+    private $post;
 
 
-
-    public function getID ():  ?int {
-        return  $this->id;
+    public function getID(): ?int
+    {
+        return $this->id;
     }
 
-    public function setID(int $id): void
+    public function setID (int $id): self
     {
         $this->id = $id;
-    }
-    public function getSlug ():  ?string {
-        return  $this->slug;
+
+        return $this;
     }
 
-    public function setSlug(string $slug): void
+    public function getSlug (): ?string {
+        return $this->slug;
+    }
+
+    public function setSlug (string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
-    public function getName ():  ?string {
-        return  $this->name;
+    public function getName (): ?string {
+        return $this->name;
     }
 
-    public function setName(string $name): void
+    public function setName (string $name): self
     {
         $this->name = $name;
+
+        return $this;
     }
 
-    public function getPostID () : ?int
+    public function getPostID (): ?int
     {
         return $this->post_id;
-
     }
 
-    public function setPost(Post $post): void
-    {
+    public function setPost (Post $post) {
         $this->post = $post;
     }
+
 }

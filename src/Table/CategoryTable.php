@@ -19,7 +19,6 @@ final class CategoryTable extends Table {
             $post->setCategories([]);
             $postsByID[$post->getID()] = $post;
         }
-
         $categories = $this->pdo
             ->query('SELECT c.*, pc.post_id
                       FROM post_category pc

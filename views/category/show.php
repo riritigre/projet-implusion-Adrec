@@ -24,7 +24,7 @@ $title = "Catégorie {$category->getName()}";
 $link = $router->url('category', ['id' => $category->getID(), 'slug' => $category->getSlug()]);
 ?>
 
-<h1><?= e($title) ?></h1>
+<h1><?= $title ?></h1>
 
 
 <div class="row">

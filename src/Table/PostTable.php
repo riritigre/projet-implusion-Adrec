@@ -1,8 +1,8 @@
 <?php
 namespace App\Table;
 
-use App\Model\Post;
 use App\PaginatedQuery;
+use App\Model\Post;
 
 final class PostTable extends Table {
 
@@ -11,14 +11,14 @@ final class PostTable extends Table {
 
     public function updatePost (Post $post): void
     {
-
         $this->update([
             'name' => $post->getName(),
             'slug' => $post->getSlug(),
             'content' => $post->getContent(),
-            'created_at' => $post->getCreatedAt()->format('Y-m-d H:i:s')
+            'created_at' => $post->getCreatedAt()->format('Y-m-d H:i:s'),
+            'image' => $post->getImage()
         ], $post->getID());
-     }
+    }
 
     public function createPost (Post $post): void
     {
@@ -26,11 +26,11 @@ final class PostTable extends Table {
             'name' => $post->getName(),
             'slug' => $post->getSlug(),
             'content' => $post->getContent(),
+            'image' => $post->getImage(),
             'created_at' => $post->getCreatedAt()->format('Y-m-d H:i:s')
         ]);
         $post->setID($id);
     }
-
 
     public function attachCategories (int $id, array $categories) {
         $this->pdo->exec('DELETE FROM post_category WHERE post_id = ' . $id);
@@ -39,7 +39,6 @@ final class PostTable extends Table {
             $query->execute([$id, $category]);
         }
     }
-
 
     public function findPaginated () {
         $paginatedQuery = new PaginatedQuery(

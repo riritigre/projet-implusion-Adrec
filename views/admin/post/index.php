@@ -1,8 +1,9 @@
 <?php
 
-use App\Auth;
+
 use App\Connection;
 use App\Table\PostTable;
+use App\Auth;
 
 
 Auth::check();
@@ -16,11 +17,9 @@ $link = $router->url('admin_posts');
 ?>
 
 <?php if (isset($_GET['delete'])) : ?>
-
 <div class="alert alert-success">
     l'enregistrement a bien été supprimé
 </div>
-
 <?php endif ?>
 
 
@@ -38,7 +37,7 @@ $link = $router->url('admin_posts');
           <td>#<?= $post->getID() ?></td>
           <td>
               <a href="<?= $router->url('admin_post', ['id' => $post->getID()]) ?> ">
-                  <?= e($post->getName()) ?>
+                  <?= $post->getName() ?>
               </a>
           </td>
           <td>
@@ -49,7 +48,6 @@ $link = $router->url('admin_posts');
              onsubmit="return confirm('Voulez-vous vraiment effectuer cette action ?')" style="display:inline " >
              <button type="submit" class="btn btn-danger">Supprimer</button>
               </form>
-              
           </td>
         </tr>
         <?php endforeach ?>

@@ -1,12 +1,13 @@
 <?php
 
-use App\Auth;
 use App\Connection;
-use App\HTML\Form;
-use App\Model\Category;
-use App\ObjectHelper;
 use App\Table\CategoryTable;
+use App\HTML\Form;
 use App\Validators\CategoryValidator;
+use App\ObjectHelper;
+use App\Model\Category;
+use App\Auth;
+
 
 Auth::check();
 
