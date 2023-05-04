@@ -29,7 +29,11 @@ if (!empty($_POST)) {
 
 $form = new Form($user, $errors);
 ?>
-
+<style>
+    h1{
+        margin-top: 112px;
+    }
+</style>
 <h1>Se connecter</h1>
 
 <?php if(isset($_GET['forbidden'])): ?>
@@ -42,5 +46,10 @@ $form = new Form($user, $errors);
     <?= $form->input('username', 'Nom d\'utilisateur'); ?>
     <?= $form->input('password', 'Mot de passe'); ?>
     <br>
+    <style>
+        .btn{
+            margin-bottom: 250px;
+        }
+    </style>
     <button type="submit" class="btn btn-primary">Se connecter</button>
 </form>

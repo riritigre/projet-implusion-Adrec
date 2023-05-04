@@ -5,11 +5,11 @@
         <div class="col-md-9">
             <?= $form->file('image', 'Image à la une'); ?>
         </div>
-        <div class="col-md-3">
+        <!--<div class="col-md-3">
             <?php if ($post->getImage()): ?>
                 <img src="<?= $post->getImageURL('small') ?>" alt="" style="width: 100%;">
             <?php endif ?>
-        </div>
+        </div> -->
     </div>
     <?= $form->select('categories_ids', 'Catégories', $categories); ?>
     <?= $form->textarea('content', 'Contenu'); ?>

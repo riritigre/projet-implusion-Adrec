@@ -10,10 +10,9 @@
         "altorouter/altorouter": "1.2.0",
         "symfony/var-dumper": "^6.2",
         "filp/whoops": "2.15",
-        "ext-pdo": "*",
         "fzaninotto/faker": "1.8.0",
         "vlucas/valitron": "1.4.5",
-        "ext-http": "*",
-        "ext-fileinfo": "*"
+        "intervention/image": "^2.5",
+        "ext-pdo": "*"
     }
 }

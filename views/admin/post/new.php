@@ -19,7 +19,7 @@ $categoryTable = new CategoryTable($pdo);
 $categories = $categoryTable->list();
 $post->setCreatedAt(date('Y-m-d H:i:s'));
 
-if (!empty($_POST)) {
+ if (!empty($_POST)) {
     $postTable = new PostTable($pdo);
     $data = array_merge($_POST, $_FILES);
     $v = new PostValidator($data, $postTable, $post->getID(), $categories);

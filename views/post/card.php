@@ -8,20 +8,33 @@ HTML;
 
 ?>
 
-        <div class="card mb-3">
+
+        <div >
             <?php if ($post->getImage()): ?>
                 <img src="<?= $post->getImageURL('small') ?>" class="card-img-top" alt="card-img">
             <?php endif ?>
+            <style>
+                .card-body{
+                    margin-top: 80px;
+                    padding-left: -40px;
+                    padding-right: 40px;
+                    margin-right: 20px;
+
+                }
+            </style>
             <div class="card-body">
                 <p class="text-muted"><?= $post->getCreatedAt()->format('d F Y') ?></p>
-                <h5 class="card-title"><?=htmlentities($post->getName()) ?></h5>
+                <h4 class="card-title"><?=htmlentities($post->getName()) ?></h4>
                 <p>
                     <?php if (!empty($post->getCategories())): ?>
                     <?= implode(', ', $categories) ?>
                     <?php endif ?>
                     <style>
                         .card-text{
-                            font-weight: normal;php
+                            font-weight: normal;
+                            margin-top: 25px;
+                            padding-right: 30px;
+
                         }
                     </style>
                 <p class="card-text"><?=$post->getExcerpt()?></p>
@@ -29,9 +42,10 @@ HTML;
                     .btn-primary{
                         background-color: #EC6A20;
                         border-color: #EC6A20;
+                        margin-bottom: 250px;
                     }
                 </style>
-                <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" class="btn btn-primary">Voir plus</a>
+                <a href="<?= $router->url('post', ['id' => $post->getID(), 'slug' => $post->getSlug()]) ?>" class="btn btn-primary">Voir l'article</a>
             </div>
         </div>
 

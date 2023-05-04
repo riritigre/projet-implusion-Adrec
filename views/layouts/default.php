@@ -13,57 +13,70 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD" crossorigin="anonymous" defer></script>
 </head>
 
-<body class="d-flex flex-column h-100">
+<body class="d-flex flex-column h-80">
 
 
 
-<div class="bg- light py-4 footer mt-auto">
+<div class="">
     <style>
         .title{
             text-align: center;
             font-size: 28px;
             color: #EC6A20;
-            margin-top: -10px;
+            margin-top: 10px;
             font-weight: bold;
         }
     </style>
-<h2 class="title" style="font-family: Calibri,serif, style="text">FORMATION IMPLUSION ADREC</h2>
+    <h2 class="title" style="font-family: Calibri,serif, style="text">FORMATION IMPLUSION ADREC</h2>
+    <style>
+        a.login{
+            margin-left: 1670px;
+            color:#EC6A20;
+            font-size: 19px;
+            margin-top: -50px;
+        }
 
-<a href="https://www.adrec-formation.fr/" class="navbar-brand custom-logo-link" rel="home" aria-current="page">
+
+
+    </style>
+    <a class="nav-link login" href="http://localhost:8000/login">Connection Administrateur</a>
+
+    <a href="https://www.adrec-formation.fr/" class="navbar-brand custom-logo-link" rel="home" aria-current="page">
     <style>
         .img-fluid{
             margin-top: -21px;
             margin-left: 58px;
         }
     </style>
-<img width="280" height="213" src="https://www.adrec-formation.fr/wp-content/uploads/2018/07/logo_adrec_coul_cmjn.png" class="img-fluid" alt="LOGO-ADREC" srcset="https://www.adrec-formation.fr/wp-content/uploads/2018/07/logo_adrec_coul_cmjn.png 852w, https://www.adrec-formation.fr/wp-content/uploads/2018/07/logo_adrec_coul_cmjn-300x75.png 300w, https://www.adrec-formation.fr/wp-content/uploads/2018/07/logo_adrec_coul_cmjn-768x192.png 768w" sizes="(max-width: 852px) 100vw, 852px">
-</a>
+    <img width="280" height="213" src="https://www.adrec-formation.fr/wp-content/uploads/2018/07/logo_adrec_coul_cmjn.png" class="img-fluid" alt="LOGO-ADREC" srcset="https://www.adrec-formation.fr/wp-content/uploads/2018/07/logo_adrec_coul_cmjn.png 852w, https://www.adrec-formation.fr/wp-content/uploads/2018/07/logo_adrec_coul_cmjn-300x75.png 300w, https://www.adrec-formation.fr/wp-content/uploads/2018/07/logo_adrec_coul_cmjn-768x192.png 768w" sizes="(max-width: 852px) 100vw, 852px">
+    </a>
 
     <ul class="nav justify-content-center">
         <style>
+
             .nav-link {
-                font-size: 24px;
+                font-size: 25px;
                 margin-top: -39px;
                 margin-bottom: 20px;
                 color:black;
-                font-family: Calibri;
+                font-family:Calibri, serif;
                 font-weight: bold;
+                margin-left: 75px;
+
+
             }
         </style>
         <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="http://localhost:8000/">Actualité</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8000/blog/category/eaque-quia-iusto-vel-2">Catégories</a>
+            <a class="nav-link" href="http://localhost:8000/blog">Catégories</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="#">Agenda Evénement</a>
         </li>
         <li class="nav-item">
             <a class="nav-link disabled">CVthèque</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="http://localhost:8000/login">Connection Administrateur</a>
         </li>
     </ul>
 
@@ -76,7 +89,8 @@
         <?= $content ?>
     </div>
 </body>
-<footer style="background-color:rgb(220, 220, 220); " class="bg- light py-4 footer mt-auto">
+
+<footer style="background-color:rgb(220, 220, 220); " class=" bg- light py-4 footer mt-auto">
 
 
     <div style="text-align:right">

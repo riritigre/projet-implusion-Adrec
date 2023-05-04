@@ -8,7 +8,7 @@ use App\Table\PostTable;
 class PostValidator extends AbstractValidator {
 
 
-        public function __construct(array $data, PostTable $table, ?int $postID = null, array $categories )
+        public function __construct(array $data, PostTable $table,  ?int $postID = null, array $categories )
         {
 
             parent::__construct($data);
